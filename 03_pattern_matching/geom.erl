@@ -8,7 +8,8 @@ area(rectangle, Width, Height) when Width >= 0, Height >= 0 ->
 area(triangle, Base, Height) when Base >= 0, Height >= 0 ->
   Base * Height / 2.0;
 area(ellipse, Width, Height) when Width >= 0, Height >= 0 ->
-  math:pi() * Width * Height.
+  math:pi() * Width * Height;
+area(_, _Width, _Height) -> 0.
 
 
 area_test_() -> [
@@ -17,5 +18,6 @@ area_test_() -> [
   ?_assert( area(rectangle, 1.5,4) =:= 6.0 ),
   ?_assert( area(triangle, 3,5)    =:= 7.5 ),
   ?_assert( area(ellipse, 2,4) > 25.132 andalso area(ellipse, 2,4) < 25.133),
-  ?_assertException(error, function_clause, area(rectangle, -1, -1))
+  ?_assert( area(rectangle, -1,1)  =:= 0 ),
+  ?_assert( area(pentagon, 1, 1)   =:= 0 )
 ].
