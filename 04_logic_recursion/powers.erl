@@ -6,7 +6,7 @@
 raise(_Base, 0) -> 1;
 raise(Base, 1) -> Base;
 raise(Base, Power) when Power > 1 -> Base * raise(Base, Power - 1);
-raise(Base, Power) when Power < 0 -> 1.0 / raise(Base, -1 * Power).
+raise(Base, Power) when Power < 0 -> 1.0 / raise(Base, -Power).
 
 raise_test_() -> [
   ?_assertEqual( 1, raise(4.256, 0)),
