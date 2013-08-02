@@ -3,7 +3,7 @@
 -include_lib("eunit/include/eunit.hrl").
 
 %% raise/2
--spec(raise(number(), number()) -> number()).
+-spec(raise(number(), integer()) -> number()).
 raise(_Base, 0) -> 1;
 raise(Base, Power) when Power > 0 ->
   raise(Base, Power, 1);
