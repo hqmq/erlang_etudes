@@ -10,4 +10,10 @@ defmodule PowersTest do
     assert Powers.nth(2,0) == 1
     assert Powers.nth(2,-3) == 0.125
   end
+
+  test "Powers.nth_root/2" do
+    assert Powers.nth_root(25,2) == 5
+    assert Powers.nth_root(125,3) == 5
+    assert Powers.nth_root(27,3) == 3
+  end
 end
