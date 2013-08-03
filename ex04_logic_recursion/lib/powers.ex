@@ -1,6 +1,8 @@
 defmodule Powers do
   def nth(_base, 0), do: 1
-  def nth(base, power) when power > 0, do: nth(base, power, 1)
+  def nth(base, power) when power > 0 do
+    nth(base, power, 1)
+  end
   def nth(base, power) when power < 0 do
     1.0 / nth(base,-power)
   end
