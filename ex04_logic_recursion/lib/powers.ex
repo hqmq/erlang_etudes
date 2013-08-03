@@ -1,17 +1,13 @@
 defmodule Powers do
-  def nth(_m,0) do
-    1
+  def nth(_base, 0), do: 1
+  def nth(base, power) when power > 0, do: nth(base, power, 1)
+  def nth(base, power) when power < 0 do
+    1.0 / nth(base,-power)
   end
 
-  def nth(m, 1) do
-    m
-  end
-
-  def nth(m, n) when n >= 0 do
-    m * nth(m, n-1)
-  end
-
-  def nth(m, n) when n < 0 do
-    1.0 / nth(m, -n)
+  defp nth(1, _power, _acc), do: 1
+  defp nth(_base, 0, acc), do: acc
+  defp nth(base, power, acc) do
+    nth(base, power-1, base * acc)
   end
 end
